@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "babel-register": "^6.18.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
@@ -15,6 +16,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.1.8",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
