@@ -1,3 +1,3 @@
 require('babel-register');
 
-exports = module.exports = require('./bin/www')
+exports = module.exports = require('./server/app');
