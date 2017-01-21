@@ -1,5 +1,5 @@
 /* eslint no-param-reassign: ["error", { "props": false }]*/
-
+/* eslint import/no-extraneous-dependencies: ["error", {"optionalDependencies": false}] */
 import express from 'express';
 import path from 'path';
 import logger from 'morgan';
@@ -16,7 +16,7 @@ export default (routes) => {
   const app = express();
   app.use(logger('dev'));
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(cookieParser());
   app.use(routes);
 
