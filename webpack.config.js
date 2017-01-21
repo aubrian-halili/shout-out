@@ -6,7 +6,7 @@ const config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    path.join(__dirname, 'views/main.jsx'),
+    path.join(__dirname, 'src/index.js'),
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
@@ -15,7 +15,7 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'views/index.tpl.html',
+      template: 'src/index.html',
       inject: 'body',
       filename: 'index.html',
     }),
