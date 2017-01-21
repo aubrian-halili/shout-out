@@ -5,24 +5,47 @@ import path from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import webpack from 'webpack';
+import webpackMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import index from '../index';
-import users from '../users';
+import config from '../../webpack.config';
 
 const app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, '../../views'));
-app.set('view engine', 'jade');
+const rootDir = `${__dirname}../../`;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../public')));
 
-app.use('/', index);
-app.use('/users', users);
+const isDev = process.env.NODE_ENV === 'development';
+if (isDev) {
+  const compiler = webpack(config);
+  const middleware = webpackMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false,
+    },
+  });
+
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+  app.get('*', (req, res) => {
+    res.write(middleware.fileSystem.readFileSync(path.join(rootDir, 'dist/index.html')));
+    res.end();
+  });
+} else {
+  app.use(express.static(`${rootDir}dist`));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(rootDir, 'dist/index.html'));
+  });
+}
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -35,7 +58,7 @@ app.use((req, res, next) => {
 app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = isDev ? err : {};
 
   // render the error page
   res.status(err.status || 500);
