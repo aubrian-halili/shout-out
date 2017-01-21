@@ -1,31 +1,20 @@
 #!/usr/bin/env node
 /* eslint no-use-before-define: ["error", { "functions": false }]*/
-
-/**
- * Module dependencies.
- */
-
 import http from 'http';
-import app from './services/express';
+import express from './services/express';
+import mongoose from './services/mongoose';
+
 import logger from './util/logger';
+import api from './api';
+import config from './config';
 
-/**
- * Get port from environment and store in Express.
- */
+const app = express(api);
+mongoose.connect(config.mongo.uri);
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
 const server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -33,7 +22,6 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   const portValue = parseInt(val, 10);
 
@@ -53,7 +41,6 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -79,7 +66,6 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
