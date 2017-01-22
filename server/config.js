@@ -24,6 +24,16 @@ const config = {
     port: process.env.PORT || 9000,
     ip: process.env.IP || '0.0.0.0',
     masterKey: requireProcessEnv('MASTER_KEY'),
+    bcrypt: {
+      saltRounds: 10,
+    },
+    session: {
+      secret: 'JwNXzPqER',
+    },
+    redis: {
+      host: '192.168.99.100',
+      port: '32770',
+    },
     mongo: {
       options: {
         db: {

@@ -1,15 +1,15 @@
-/* eslint func-names: ["error", "never"]*/
+/* eslint func-names: "off"*/
 import mongoose from '../services/mongoose';
 
 const Schema = mongoose.Schema;
-const shoutSchema = new Schema({
+const ShoutSchema = new Schema({
   text: String,
   user_id: String,
   created_at: Date,
   updated_at: Date,
 });
 
-shoutSchema.pre('save', function (next) {
+ShoutSchema.pre('save', function (next) {
   const currentDate = new Date();
 
   this.updated_at = currentDate;
@@ -19,5 +19,5 @@ shoutSchema.pre('save', function (next) {
   next();
 });
 
-const Shout = mongoose.model('Shout', shoutSchema);
+const Shout = mongoose.model('Shout', ShoutSchema);
 export default Shout;

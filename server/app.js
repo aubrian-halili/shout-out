@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint no-use-before-define: ["error", { "functions": false }]*/
+/* eslint no-use-before-define: "off"*/
 import http from 'http';
 import express from './services/express';
 import mongoose from './services/mongoose';

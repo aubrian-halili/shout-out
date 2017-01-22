@@ -2,8 +2,13 @@ import User from '../../models/User';
 import { success, error } from '../../util/response';
 
 const save = (req, res) => {
+  const name = req.body.name;
+  const username = req.body.username;
+  const password = req.body.password;
   const user = new User({
-    name: req.body.name,
+    name,
+    username,
+    password,
   });
 
   user.save((err, newUser) => {

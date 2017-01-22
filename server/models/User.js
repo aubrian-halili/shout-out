@@ -1,22 +1,37 @@
-/* eslint func-names: ["error", "never"]*/
+/* eslint func-names: "off"*/
 import mongoose from '../services/mongoose';
+import { hash, compare } from '../util/bcrypt';
 
 const Schema = mongoose.Schema;
-const userSchema = new Schema({
+const UserSchema = new Schema({
   name: String,
+  username: String,
+  password: String,
   created_at: Date,
   updated_at: Date,
 });
 
-userSchema.pre('save', function (next) {
+UserSchema.pre('save', function (next) {
   const currentDate = new Date();
 
   this.updated_at = currentDate;
   if (!this.created_at) {
     this.created_at = currentDate;
   }
-  next();
+
+  hash(this.password, (err, hashPass) => {
+    if (err) {
+      next(err);
+    } else {
+      this.password = hashPass;
+      next();
+    }
+  });
 });
 
-const User = mongoose.model('User', userSchema);
+UserSchema.methods.isValidPassword = function (password, cb) {
+  compare(password, this.password, cb);
+};
+
+const User = mongoose.model('User', UserSchema);
 export default User;
