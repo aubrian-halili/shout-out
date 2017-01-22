@@ -1,7 +1,7 @@
 import User from '../../models/User';
 import { success, error } from '../../util/response';
 
-const add = (req, res) => {
+const save = (req, res) => {
   const user = new User({
     name: req.body.name,
   });
@@ -15,4 +15,4 @@ const add = (req, res) => {
   });
 };
 
-export default add;
+export default save;

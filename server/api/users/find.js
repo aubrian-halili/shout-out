@@ -1,7 +1,7 @@
 import User from '../../models/User';
 import { success, error } from '../../util/response';
 
-const add = (req, res) => {
+const find = (req, res) => {
   User.find({}, (err, users) => {
     if (err) {
       error(res, 'Something went wrong');
@@ -11,4 +11,4 @@ const add = (req, res) => {
   });
 };
 
-export default add;
+export default find;

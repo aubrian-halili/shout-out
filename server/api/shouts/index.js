@@ -1,8 +1,10 @@
 import { Router } from 'express';
 
-const prices = new Router();
-const get = require('./get');
+import find from './find';
+import save from './save';
 
-prices.get('/', get);
+const shouts = new Router();
+shouts.get('/', find);
+shouts.post('/', save);
 
-module.exports = prices;
+module.exports = shouts;
