@@ -2,21 +2,17 @@ import _ from '../../util/_';
 import Shout from '../../models/Shout';
 import { success, badRequest, error } from '../../util/response';
 
-const save = (req, res) => {
-  const shout = new Shout({
-    text: req.body.text,
-    user_id: req.body.userId,
-  });
-
-  shout.save((err, newShout) => {
+const remove = (req, res) => {
+  const id = req.params.shoutId;
+  Shout.findByIdAndRemove(id, (err, shout) => {
     if (err) {
       error(res, 'Something went wrong');
-    } else if (_.isNull(newShout)) {
+    } else if (_.isNull(shout)) {
       badRequest(res, 'Unable to process the request');
     } else {
-      success(res, newShout);
+      success(res, shout);
     }
   });
 };
 
-export default save;
+export default remove;
