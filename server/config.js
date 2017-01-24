@@ -32,7 +32,7 @@ const config = {
     },
     redis: {
       host: '192.168.99.100',
-      port: '32770',
+      port: '6379',
     },
     mongo: {
       options: {

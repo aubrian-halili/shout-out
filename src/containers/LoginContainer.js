@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import _ from '../util/_';
 import Component from '../components/Login';
-import { setUsername, setPassword, validate } from '../actions/login-action';
+import { setUsername, setPassword, validate, login } from '../actions/login-action';
 
 const getUsernameState = (state) => {
   const { login: { error } } = state;
@@ -43,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     validate: () => {
       dispatch(validate());
+    },
+    login: () => {
+      dispatch(login());
     },
   };
 };

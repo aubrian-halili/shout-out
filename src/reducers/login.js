@@ -9,7 +9,7 @@ const username = (state = '', action) => {
   }
 };
 
-const password = (state = '', action) => {
+const password = (state = null, action) => {
   switch (action.type) {
     case 'SET_PASSWORD':
       return action.password;

@@ -47,6 +47,7 @@ export default (routes) => {
     app.use(middleware);
     app.use(webpackHotMiddleware(compiler));
     app.get('*', (req, res) => {
+      res.type('html');
       res.write(middleware.fileSystem.readFileSync(path.join(config.root, '/dist/index.html')));
       res.end();
     });

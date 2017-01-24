@@ -1,3 +1,4 @@
+import axios from 'axios';
 import _ from '../util/_'
 
 export const setUsername = (username) => {
@@ -11,6 +12,13 @@ export const setPassword = (password) => {
   return {
     type: 'SET_PASSWORD',
     password,
+  };
+};
+
+export const setUser = (user) => {
+  return {
+    type: 'SET_USER',
+    user,
   };
 };
 
@@ -31,12 +39,46 @@ export const validate = () => {
         message: 'Invalid value for username',
       });
     }
-    if (_.isEmpty(credentials.password)) {
+    if (_.isEmpty(credentials.password) && credentials.password !== null) {
       error.push({
         field: 'password',
         message: 'Invalid value for password',
       });
     }
     dispatch(setLoginError(error));
+  };
+};
+
+export const login = () => {
+  return (dispatch, getState) => {
+    const { login: { credentials } } = getState();
+    axios.post('/auth/login', {
+      username: credentials.username,
+      password: credentials.password,
+    })
+    .then((response) => {
+      dispatch(setUser(response.data));
+    })
+    .catch(() => {
+      dispatch(setLoginError([{
+        field: 'generic',
+        message: 'Invalid username or password',
+      }]));
+    });
+  };
+};
+
+export const logout = () => {
+  return (dispatch) => {
+    axios.get('/auth/logout')
+    .then(() => {
+      dispatch(setUser({}));
+    })
+    .catch(() => {
+      dispatch(setLoginError([{
+        field: 'generic',
+        message: 'Unable to logout',
+      }]));
+    });
   };
 };
