@@ -6,6 +6,13 @@ import User from '../models/User';
 
 const LocalStrategy = passportLocal.Strategy;
 
+const getUserDetails = (user) => {
+  return {
+    id: user.id,
+    name: user.name,
+  };
+}
+
 passport.use(new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
@@ -24,7 +31,7 @@ passport.use(new LocalStrategy({
       if (!isSame) {
         return done(null, false, { message: 'Incorrect credentials.' });
       }
-      return done(null, user);
+      return done(null, getUserDetails(user));
     });
   });
 }));
@@ -36,7 +43,7 @@ passport.serializeUser((user, cb) => {
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
     if (err) { return cb(err); }
-    cb(null, user);
+    cb(null, getUserDetails(user));
   });
 });
 

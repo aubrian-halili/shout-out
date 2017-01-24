@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import shouts from './shouts';
+import login from './login';
 
 const shoutApp = combineReducers({
-  shouts,
+  login,
 });
 
 export default shoutApp;
