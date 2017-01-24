@@ -1,3 +1,5 @@
+import _ from '../util/_'
+
 export const setUsername = (username) => {
   return {
     type: 'SET_USERNAME',
@@ -16,5 +18,25 @@ export const setLoginError = (error) => {
   return {
     type: 'SET_LOGIN_ERROR',
     error,
+  };
+};
+
+export const validate = () => {
+  return (dispatch, getState) => {
+    const error = [];
+    const { login: { credentials } } = getState();
+    if (_.isEmpty(credentials.username)) {
+      error.push({
+        field: 'username',
+        message: 'Invalid value for username',
+      });
+    }
+    if (_.isEmpty(credentials.password)) {
+      error.push({
+        field: 'password',
+        message: 'Invalid value for password',
+      });
+    }
+    dispatch(setLoginError(error));
   };
 };
