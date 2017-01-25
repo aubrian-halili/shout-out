@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = {
   devtool: 'eval-source-map',
@@ -24,6 +25,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
+    new ExtractTextPlugin('[name].css'),
   ],
   module: {
     loaders: [{
@@ -36,9 +38,10 @@ const config = {
     }, {
       test: /\.json?$/,
       loader: 'json',
-    }, {
+    },
+    {
       test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]',
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
     }],
   },
 };

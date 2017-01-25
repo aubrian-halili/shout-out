@@ -1,37 +1,24 @@
 import React from 'react';
-import { Form, FormGroup, Col, ControlLabel, FormControl, Button, HelpBlock } from 'react-bootstrap';
 
-const Component = ({ onUsernameChange, onPasswordChange, validate,
-  usernameState, passwordState, login }) => (
-  <Form horizontal>
-    <FormGroup controlId="formHorizontalEmail" validationState={usernameState.state}>
-      <Col componentClass={ControlLabel} sm={2}>
-        Username
-      </Col>
-      <Col sm={10}>
-        <FormControl type="text" placeholder="Username" onChange={onUsernameChange} onBlur={validate} />
-        {usernameState.isError && <HelpBlock>{usernameState.message}</HelpBlock>}
-      </Col>
-    </FormGroup>
+const Component = ({ onUsernameChange, onPasswordChange, validate, login, error }) => (
+  <div className="container">
+    <form className="form-signin">
+      {error.map((err) =>
+        <div className="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> {err.message}
+        </div>
+      )}
+      <h2 className="form-signin-heading">Please sign in</h2>
 
-    <FormGroup controlId="formHorizontalPassword" validationState={passwordState.state}>
-      <Col componentClass={ControlLabel} sm={2}>
-        Password
-      </Col>
-      <Col sm={10}>
-        <FormControl type="password" placeholder="Password" onChange={onPasswordChange} onFocus={onPasswordChange} onBlur={validate} />
-        {passwordState.isError && <HelpBlock>{passwordState.message}</HelpBlock>}
-      </Col>
-    </FormGroup>
+      <label htmlFor="username" className="sr-only">Email address</label>
+      <input type="email" id="username" className="form-control" placeholder="Username" required="" autoFocus="" onFocus={onUsernameChange} onChange={onUsernameChange} onBlur={validate} />
 
-    <FormGroup>
-      <Col smOffset={2} sm={10}>
-        <Button onClick={login}>
-          Login
-        </Button>
-      </Col>
-    </FormGroup>
-  </Form>
+      <label htmlFor="password" className="sr-only">Password</label>
+      <input type="password" id="password" className="form-control" placeholder="Password" required="" autoFocus="" onFocus={onPasswordChange} onChange={onPasswordChange} onBlur={validate} />
+
+      <button className="btn btn-lg btn-primary btn-block" type="button" onClick={login}>Sign in</button>
+    </form>
+  </div>
 );
 
 export default Component;

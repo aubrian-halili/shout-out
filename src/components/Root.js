@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import App from './App';
+import Welcome from './Welcome';
+import Login from '../containers/LoginContainer';
+import Dashboard from '../containers/DashboardContainer';
 
 class Root extends Component {
-  // We need to provide a list of routes
-  // for our app, and in this case we are
-  // doing so from a Root component
   render() {
     return (
-      <Router history={this.props.history}>
-        <Route path="/" component={App} />
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Welcome} />
+          <Route path="login" component={Login} />
+          <Route path="dashboard" component={Dashboard} />
+        </Route>
       </Router>
     );
   }

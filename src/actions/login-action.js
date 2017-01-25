@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 import _ from '../util/_'
 
 export const setUsername = (username) => {
@@ -58,6 +59,7 @@ export const login = () => {
     })
     .then((response) => {
       dispatch(setUser(response.data));
+      browserHistory.push('/dashboard');
     })
     .catch(() => {
       dispatch(setLoginError([{
@@ -73,6 +75,7 @@ export const logout = () => {
     axios.get('/auth/logout')
     .then(() => {
       dispatch(setUser({}));
+      browserHistory.push('/');
     })
     .catch(() => {
       dispatch(setLoginError([{

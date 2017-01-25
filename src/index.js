@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import * as storage from 'redux-storage';
@@ -9,6 +9,7 @@ import createEngine from 'redux-storage-engine-localstorage';
 
 import reducers from './reducers';
 import Root from './components/Root';
+import css from './styles/app.css';
 
 const engine = createEngine('YjGQoDeJHdAm');
 const storageMiddleware = storage.createMiddleware(engine);
