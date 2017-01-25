@@ -1,18 +1,17 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import { ListGroupItem } from 'react-bootstrap';
 
-const UserComponent = (user) => (
-  <ListGroupItem>
-    <Link to={`/user/${user.id}`}>
-      <h4>{user.name}</h4>
+const Component = ({ id, name }) => (
+  <li className="nav-item">
+    <Link className="nav-link" to={`/user/${id}`}>
+      <h5>{name}</h5>
     </Link>
-  </ListGroupItem>
+  </li>
 );
 
-UserComponent.propTypes = React.PropTypes.shape({
+Component.propTypes = React.PropTypes.shape({
   id: React.PropTypes.number,
   name: React.PropTypes.string,
 }).isRequired;
 
-export default UserComponent;
+export default Component;

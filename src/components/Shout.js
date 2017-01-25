@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react';
-import { ListGroupItem } from 'react-bootstrap';
 
-const ShoutComponent = (shout) => (
-  <ListGroupItem>
-    <p>{shout.text}</p>
-    <p>{shout.date}</p>
-    <p>{shout.user}</p>
-  </ListGroupItem>
+const Component = ({ text, date, user }) => (
+  <li className="list-group-item list-group-item-action flex-column align-items-start">
+    <div className="d-flex w-100 justify-content-between">
+      <h5 className="mb-1">{text}</h5>
+      <small>{date}</small>
+    </div>
+    <small>{user}</small>
+  </li>
 );
 
-ShoutComponent.propTypes = React.PropTypes.shape({
+Component.propTypes = React.PropTypes.shape({
   text: React.PropTypes.number,
   date: React.PropTypes.string,
   user: React.PropTypes.string,
 }).isRequired;
 
-export default ShoutComponent;
+export default Component;

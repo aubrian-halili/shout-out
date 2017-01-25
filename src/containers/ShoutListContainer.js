@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ShoutList from '../components/ShoutList';
+import Component from '../components/ShoutList';
 
 const mapStateToProps = (state) => {
   return {
@@ -7,18 +7,18 @@ const mapStateToProps = (state) => {
       id: 1,
       text: 'This is a post related to first.',
       date: '22/01/2017',
-      user: 'Aubrian Halili',
+      user: 'Lawrence Mark',
     }, {
       id: 2,
       text: 'This is a post related to second.',
       date: '23/01/2017',
-      name: 'Joseph Imari',
+      user: 'Daniel Spark',
     }],
   };
 };
 
-const ShoutListContainer = connect(
+const Container = connect(
   mapStateToProps,
-)(ShoutList);
+)(Component);
 
-export default ShoutListContainer;
+export default Container;

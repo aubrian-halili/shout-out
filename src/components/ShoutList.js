@@ -1,18 +1,22 @@
 import React, { PropTypes } from 'react';
-import { ListGroup } from 'react-bootstrap';
 
 import Shout from './Shout';
 
-const ShoutListComponent = ({ shouts }) => (
-  <ListGroup>
-    {shouts.map(shout =>
-      <Shout key={shout.id} {...shout} />,
-    )}
-  </ListGroup>
+const Component = ({ shouts }) => (
+  <main className="col-sm-9 col-md-10">
+    <ul className="list-group">
+      <li className="list-group-item active">
+        <h5>Shouts Feed</h5>
+      </li>
+      {shouts.map(shout =>
+        <Shout key={shout.id} {...shout} />,
+      )}
+    </ul>
+  </main>
 );
 
-ShoutListComponent.propTypes = {
+Component.propTypes = {
   shouts: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 };
 
-export default ShoutListComponent;
+export default Component;

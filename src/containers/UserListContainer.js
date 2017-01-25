@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
-import UserList from '../components/UserList';
+import Component from '../components/UserList';
 
 const mapStateToProps = (state) => {
   return {
     users: [{
       id: 1,
-      name: 'Aubrian Halili',
+      name: 'Lawrence Mark',
     }, {
       id: 2,
-      name: 'Joseph Imari',
+      name: 'Daniel Spark',
     }],
   };
 };
 
-const UserListContainer = connect(
+const Container = connect(
   mapStateToProps,
-)(UserList);
+)(Component);
 
-export default UserListContainer;
+export default Container;

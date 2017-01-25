@@ -1,10 +1,18 @@
 import React from 'react';
 
+import UserList from '../containers/UserListContainer';
+import ShoutList from '../containers/ShoutListContainer';
+
 const Component = ({ name }) => (
-  <div className="greeting">
-    <div className="container">
-      <h1 className="display-4">Hello, {name}!</h1>
-      <p>Hope your having a great day.</p>
+  <div>
+    <div className="container-fluid">
+      <h2>Hello, {name}!</h2>
+    </div>
+    <div className="container-fluid">
+      <div className="row">
+        <UserList />
+        <ShoutList />
+      </div>
     </div>
   </div>
 );
