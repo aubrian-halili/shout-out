@@ -5,7 +5,7 @@ import { success, badRequest, error } from '../../util/response';
 const save = (req, res) => {
   const shout = new Shout({
     text: req.body.text,
-    user_id: req.body.userId,
+    user_id: req.user.id,
   });
 
   shout.save((err, newShout) => {

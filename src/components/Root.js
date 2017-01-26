@@ -5,7 +5,8 @@ import App from './App';
 import Welcome from './Welcome';
 import Login from '../containers/LoginContainer';
 import Dashboard from '../containers/DashboardContainer';
-import ShoutListContainer from '../containers/ShoutListContainer';
+import ShoutList from '../containers/ShoutListContainer';
+import ShoutFormContainer from '../containers/ShoutFormContainer';
 
 class Root extends Component {
   render() {
@@ -15,7 +16,8 @@ class Root extends Component {
           <IndexRoute component={Welcome} />
           <Route path="login" component={Login} />
           <Route path="dashboard" component={Dashboard}>
-            <IndexRoute component={ShoutListContainer} />
+            <IndexRoute component={ShoutFormContainer} />
+            <Route path="shouts" component={ShoutList} />
           </Route>
         </Route>
       </Router>
