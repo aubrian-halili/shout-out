@@ -27,7 +27,7 @@ export default (routes) => {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(routes);
+  app.use('/api', routes);
 
   const isDev = process.env.NODE_ENV === 'development';
   if (isDev) {

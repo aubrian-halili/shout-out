@@ -9,7 +9,16 @@ const username = (state = '', action) => {
   }
 };
 
-const password = (state = null, action) => {
+const isFormatValid = (state = false, action) => {
+  switch (action.type) {
+    case 'SET_CREDENTIAL_FORMAT_VALID':
+      return action.isValid;
+    default:
+      return state;
+  }
+};
+
+const password = (state = '', action) => {
   switch (action.type) {
     case 'SET_PASSWORD':
       return action.password;
@@ -18,14 +27,38 @@ const password = (state = null, action) => {
   }
 };
 
-const error = (state = [], action) => {
+const usernameError = (state = '', action) => {
   switch (action.type) {
-    case 'SET_LOGIN_ERROR':
+    case 'SET_USERNAME_ERROR':
       return action.error;
     default:
       return state;
   }
 };
+
+const passwordError = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_PASSWORD_ERROR':
+      return action.error;
+    default:
+      return state;
+  }
+};
+
+const authError = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_AUTH_ERROR':
+      return action.error;
+    default:
+      return state;
+  }
+};
+
+const error = combineReducers({
+  username: usernameError,
+  password: passwordError,
+  auth: authError,
+});
 
 const credentials = combineReducers({
   username,
@@ -34,6 +67,7 @@ const credentials = combineReducers({
 
 const login = combineReducers({
   credentials,
+  isFormatValid,
   error,
 });
 

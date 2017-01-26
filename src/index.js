@@ -23,11 +23,11 @@ const store = createStore(
 );
 
 const load = storage.createLoader(engine);
-load(store);
-
-render(
-  <Provider store={store}>
-    <Root history={browserHistory} />
-  </Provider>,
-  document.getElementById('app'),
-);
+load(store).then(() => {
+  render(
+    <Provider store={store}>
+      <Root history={browserHistory} />
+    </Provider>,
+    document.getElementById('app'),
+  );
+});
