@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import _ from '../util/_'
+import _ from '../util/_';
 
 export const setShout = (shout) => {
   return {
@@ -70,6 +70,15 @@ export const submitShout = () => {
     .catch(() => {
       dispatch(setShoutError('An unexpected error occured. Please be patient'));
     });
+  };
+};
+
+export const selectShout = (id) => {
+  return (dispatch, getState) => {
+    const { shout: { list } } = getState();
+    const shout = _.get(list, { id });
+    dispatch(setShout(shout));
+    browserHistory.push('/dashboard');
   };
 };
 

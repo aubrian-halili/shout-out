@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { Popover } from 'react-bootstrap';
 import _ from '../util/_';
 
 const Component = ({ id, text, updatedAt, user, deleteShout }) => (
@@ -18,10 +17,10 @@ const Component = ({ id, text, updatedAt, user, deleteShout }) => (
   </li>
 );
 
-Component.propTypes = React.PropTypes.shape({
-  text: React.PropTypes.number,
-  updatedAt: React.PropTypes.string,
-  user: React.PropTypes.string,
+Component.propTypes = PropTypes.shape({
+  text: PropTypes.number,
+  updatedAt: PropTypes.string,
+  user: PropTypes.string,
 }).isRequired;
 
 export default Component;

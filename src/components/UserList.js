@@ -31,7 +31,7 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  following: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  following: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Component;

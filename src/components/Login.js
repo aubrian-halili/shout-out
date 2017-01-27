@@ -34,7 +34,7 @@ class Component extends React.Component {
           <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.props.login} disabled={!this.props.isFormatValid}>Sign in</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

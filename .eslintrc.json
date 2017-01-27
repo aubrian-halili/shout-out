@@ -4,5 +4,11 @@
         "react",
         "jsx-a11y",
         "import"
-    ]
+    ],
+    "rules": {
+      "react/jsx-filename-extension": "off",
+      "react/prop-types": "off",
+      "arrow-body-style": "off",
+      "max-len": "off"
+    }
 }

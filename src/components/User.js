@@ -9,9 +9,9 @@ const Component = ({ id, name }) => (
   </li>
 );
 
-Component.propTypes = React.PropTypes.shape({
-  id: React.PropTypes.number,
-  name: React.PropTypes.string,
+Component.propTypes = PropTypes.shape({
+  id: PropTypes.number,
+  name: PropTypes.string,
 }).isRequired;
 
 export default Component;

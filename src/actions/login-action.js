@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import _ from '../util/_'
+import _ from '../util/_';
 
 export const setUsername = (username) => {
   return {

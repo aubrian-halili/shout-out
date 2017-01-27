@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Header, Brand, Button } from 'react-bootstrap';
 
 const Component = ({ isLoggedIn, logout }) => (
   <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
