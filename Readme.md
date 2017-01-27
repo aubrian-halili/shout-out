@@ -11,7 +11,35 @@ ShoutBux
 ## Installation
 
 ```bash
+$ git clone https://github.com/aubrian-halili/shout-out.git
 $ npm install
+```
+
+## Mongo Setup
+  Update the config file located in this path:
+
+```bash
+$ cd /app_dir/server/config.js
+```
+  Example values:
+```
+mongo: {
+  uri: 'mongodb://192.168.99.100:27017/shout-out'
+}
+```
+
+## Redis Setup
+  Update the config file located in this path:
+
+```bash
+$ cd /app_dir/server/config.js
+```
+  Example values:
+```
+redis: {
+  host: '192.168.99.100',
+  port: '6379'
+}
 ```
 
 ## Features
