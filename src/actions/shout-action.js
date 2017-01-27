@@ -59,12 +59,15 @@ export const validate = () => {
   };
 };
 
-export const submitShout = () => {
+export const addShout = () => {
   return (dispatch, getState) => {
     const { shout: { form: { data } } } = getState();
     axios.post('/api/shouts', data)
     .then(({ data: { user } }) => {
-      dispatch(setShout(''));
+      dispatch(setShout({
+        id: '',
+        text: '',
+      }));
       browserHistory.push(`/dashboard/${user}`);
     })
     .catch(() => {
@@ -73,11 +76,42 @@ export const submitShout = () => {
   };
 };
 
+export const updateShout = () => {
+  return (dispatch, getState) => {
+    const { shout: { form: { data } } } = getState();
+    axios.put(`/api/shouts/${data.id}`, { text: data.text })
+    .then(({ data: { user } }) => {
+      dispatch(setShout({
+        id: '',
+        text: '',
+      }));
+      browserHistory.push(`/dashboard/${user}`);
+    })
+    .catch(() => {
+      dispatch(setShoutError('An unexpected error occured. Please be patient'));
+    });
+  };
+};
+
+export const submitShout = () => {
+  return (dispatch, getState) => {
+    const { shout: { form: { data } } } = getState();
+    if (data.id) {
+      dispatch(updateShout());
+    } else {
+      dispatch(addShout());
+    }
+  };
+};
+
 export const selectShout = (id) => {
   return (dispatch, getState) => {
     const { shout: { list } } = getState();
-    const shout = _.get(list, { id });
-    dispatch(setShout(shout));
+    const shout = _.head(_.filter(list, ['id', id]));
+    dispatch(setShout({
+      id: shout.id,
+      text: shout.text,
+    }));
     browserHistory.push('/dashboard');
   };
 };

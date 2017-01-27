@@ -5,8 +5,16 @@ import _ from '../util/_';
 
 const data = (state = { text: '' }, action) => {
   switch (action.type) {
-    case 'SET_SHOUT':
-      return action.shout;
+    case 'SET_SHOUT': {
+      let shout = Immutable.Map(state);
+      if (_.has(action.shout, 'id')) {
+        shout = shout.set('id', action.shout.id);
+      }
+      if (_.has(action.shout, 'text')) {
+        shout = shout.set('text', action.shout.text);
+      }
+      return shout.toJSON();
+    }
     default:
       return state;
   }
