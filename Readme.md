@@ -9,9 +9,9 @@ ShoutBux
   * Redis
 
 
-## Architecture requisites
+## Architecture Diagram
 
-![alt text](https://raw.githubusercontent.com/aubrian-halili/shout-out/development/public/images/Architecture.png "Architecture")
+![alt text](https://raw.githubusercontent.com/aubrian-halili/shout-out/development/public/images/Architecture.png "Architecture Diagram")
 
 ## API Diagram
 
@@ -69,6 +69,22 @@ redis: {
 $ npm install
 $ npm test
 ```
+
+## Features
+Here are the sample Users with username and password:
+| Name              | Username  | Password  |
+|-------------------|-----------|-----------|
+| Shelby Purdie     | shelby    | shelby    |
+| Gabriele Linares  | gabriele  | gabriele  |
+| Martine Ruggeri   | martine   | martine   |
+| Elisha Ribeiro    | elisha    | elisha    |
+| Emmaline Harms    | emmaline  | emmaline  |
+| Shanice Mcnulty   | shanice   | shanice   |
+| Alfredo Atkin     | alfredo   | alfredo   |
+| Tad Paulk         | tad       | tad       |
+| Jerilyn Awong     | jerilyn   | jerilyn   |
+| Modesta Juergens  | modesta   | modesta   |
+
 ## License
 
   [MIT](LICENSE)

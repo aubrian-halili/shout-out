@@ -3,6 +3,7 @@ import Shout from '../../models/Shout';
 import { success, error } from '../../util/response';
 
 const find = (req, res) => {
+  const currentUserId = req.user.id;
   const userId = [];
   if (req.query.userId) {
     userId.push(req.query.userId);
@@ -18,6 +19,7 @@ const find = (req, res) => {
           createdAt: shout.created_at,
           updatedAt: shout.updated_at,
           user: shout.user.name,
+          isEditable: currentUserId === shout.user.id || false,
         };
       });
       success(res, formatted);

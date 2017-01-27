@@ -71,3 +71,14 @@ function onListening() {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   logger.debug(`Listening on ${bind}`);
 }
+
+/**
+ * Socket IO
+ */
+const io = require('socket.io')(server);
+io.on('connection', (socket) => {
+  socket.on('broadcast', ({ room, data }) => {
+    socket.join(room);
+    socket.emit(room, data);
+  });
+});
