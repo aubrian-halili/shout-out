@@ -8,6 +8,15 @@ ShoutBux
   * MongoDB
   * Redis
 
+
+## Architecture requisites
+
+![alt text](https://raw.githubusercontent.com/aubrian-halili/shout-out/development/public/images/Architecture.png "Architecture")
+
+## API Diagram
+
+![alt text](https://raw.githubusercontent.com/aubrian-halili/shout-out/development/public/images/API.png "API Diagram")
+
 ## Installation
 
 ```bash
