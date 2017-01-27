@@ -9,6 +9,13 @@ export const setShout = (shout) => {
   };
 };
 
+export const deleteShout = (id) => {
+  return {
+    type: 'DELETE_SHOUT',
+    id,
+  };
+};
+
 export const setShoutList = (shouts) => {
   return {
     type: 'SET_SHOUT_LIST',
@@ -62,6 +69,15 @@ export const submitShout = () => {
     })
     .catch(() => {
       dispatch(setShoutError('An unexpected error occured. Please be patient'));
+    });
+  };
+};
+
+export const deleteShoutFromList = (id) => {
+  return (dispatch) => {
+    axios.delete(`/api/shouts/${id}`)
+    .then(() => {
+      dispatch(deleteShout(id));
     });
   };
 };

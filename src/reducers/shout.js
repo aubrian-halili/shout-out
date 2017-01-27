@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+import Immutable from 'immutable';
+
+import _ from '../util/_';
 
 const data = (state = { text: '' }, action) => {
   switch (action.type) {
@@ -31,6 +34,8 @@ const list = (state = [], action) => {
   switch (action.type) {
     case 'SET_SHOUT_LIST':
       return action.shouts;
+    case 'DELETE_SHOUT':
+      return Immutable.List(state).delete(_.findIndex(state, { id: action.id })).toJSON();
     default:
       return state;
   }

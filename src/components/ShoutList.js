@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Shout from './Shout';
+import Shout from '../containers/ShoutContainer';
 
 class Component extends React.Component {
   componentDidMount() {
