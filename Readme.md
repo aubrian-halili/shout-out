@@ -70,10 +70,17 @@ $ npm install
 $ npm test
 ```
 
-## Features
-Here are the sample Users with username and password:
+## User Account
+  Here is the list of Users with username and password:
+
+  A backup of MongoDB Collection is included in this repository. Path for the directory:
+
+```bash
+$ cd /app_dir/db-backup
+```
+
 | Name              | Username  | Password  |
-|-------------------|-----------|-----------|
+| ----------------- | --------- | --------- |
 | Shelby Purdie     | shelby    | shelby    |
 | Gabriele Linares  | gabriele  | gabriele  |
 | Martine Ruggeri   | martine   | martine   |

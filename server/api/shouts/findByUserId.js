@@ -4,9 +4,11 @@ import { success, error } from '../../util/response';
 
 const find = (req, res) => {
   const currentUserId = req.user.id;
-  const userId = [];
+  let userId = [];
   if (req.query.userId) {
     userId.push(req.query.userId);
+  } else {
+    userId = userId.concat(req.query.userId);
   }
   Shout.find({ user: { $in: userId } }).populate('user').sort({ updated_at: -1 }).exec((err, shouts) => {
     if (err) {

@@ -6,9 +6,11 @@ const save = (req, res) => {
   const userId = req.params.userId;
   const name = req.body.name;
   const username = req.body.username;
-  const following = [];
-  if (req.body.following) {
+  let following = [];
+  if (req.body.following > 1) {
     following.push(req.body.following);
+  } else {
+    following = following.concat(req.body.following);
   }
 
   User.findOne({ _id: userId }, (err, user) => {
