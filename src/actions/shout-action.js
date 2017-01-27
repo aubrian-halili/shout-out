@@ -56,9 +56,9 @@ export const submitShout = () => {
   return (dispatch, getState) => {
     const { shout: { form: { data } } } = getState();
     axios.post('/api/shouts', data)
-    .then(() => {
+    .then(({ data: { user } }) => {
       dispatch(setShout(''));
-      browserHistory.push('/dashboard/feeds');
+      browserHistory.push(`/dashboard/${user}`);
     })
     .catch(() => {
       dispatch(setShoutError('An unexpected error occured. Please be patient'));

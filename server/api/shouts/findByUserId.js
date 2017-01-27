@@ -7,7 +7,7 @@ const find = (req, res) => {
   if (req.query.userId) {
     userId.push(req.query.userId);
   }
-  Shout.find({ user: { $in: userId } }).populate('user').exec((err, shouts) => {
+  Shout.find({ user: { $in: userId } }).populate('user').sort({ updated_at: -1 }).exec((err, shouts) => {
     if (err) {
       error(res, 'Something went wrong');
     } else {

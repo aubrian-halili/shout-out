@@ -3,6 +3,11 @@ import React, { PropTypes } from 'react';
 import Shout from './Shout';
 
 class Component extends React.Component {
+  componentDidMount() {
+    const userId = this.props.params.userId;
+    this.props.init(userId);
+  }
+
   shouldComponentUpdate(nextProps) {
     if (this.props.params.userId !== nextProps.params.userId) {
       const userId = nextProps.params.userId;
