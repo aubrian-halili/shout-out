@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UserList from '../containers/UserListContainer';
+import Following from '../containers/FollowingContainer';
 
 const Component = ({ name, children }) => (
   <div>
@@ -10,7 +10,7 @@ const Component = ({ name, children }) => (
     <div className="container-fluid">
       <div className="row">
         <nav className="col-sm-3 col-md-2 hidden-xs-down sidebar">
-          <UserList />
+          <Following />
         </nav>
         <main className="col-sm-9 col-md-10">
           {children}

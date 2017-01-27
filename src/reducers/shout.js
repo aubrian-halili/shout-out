@@ -27,6 +27,15 @@ const isFormatValid = (state = false, action) => {
   }
 };
 
+const list = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_SHOUT_LIST':
+      return action.shouts;
+    default:
+      return state;
+  }
+};
+
 const form = combineReducers({
   data,
   error,
@@ -35,6 +44,7 @@ const form = combineReducers({
 
 const reducer = combineReducers({
   form,
+  list,
 });
 
 export default reducer;

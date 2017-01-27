@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 
-const Component = ({ text, date, user }) => (
+const Component = ({ text, updatedAt, user }) => (
   <li className="list-group-item list-group-item-action flex-column align-items-start">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">{text}</h5>
-      <small>{date}</small>
+      <small>{updatedAt}</small>
     </div>
     <small>{user}</small>
   </li>
@@ -12,7 +12,7 @@ const Component = ({ text, date, user }) => (
 
 Component.propTypes = React.PropTypes.shape({
   text: React.PropTypes.number,
-  date: React.PropTypes.string,
+  updatedAt: React.PropTypes.string,
   user: React.PropTypes.string,
 }).isRequired;
 

@@ -7,7 +7,9 @@ const auth = new Router();
 
 auth.post('/login', passport.authenticate('local'), (req, res) => {
   success(res, {
+    id: req.user.id,
     name: req.user.name,
+    following: req.user.following,
   });
 });
 

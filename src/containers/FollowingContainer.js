@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 
-import Component from '../components/ShoutList';
-import { getShoutList } from '../actions/shout-action';
+import Component from '../components/UserList';
+import { getFollowing } from '../actions/following-action';
 
 const mapStateToProps = (state) => {
   return {
-    shouts: state.shout.list,
+    currentUserId: state.user.id,
+    following: state.following,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    init: (userId) => {
-      dispatch(getShoutList(userId));
+    init: () => {
+      dispatch(getFollowing());
     },
   };
 };

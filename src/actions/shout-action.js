@@ -9,6 +9,13 @@ export const setShout = (shout) => {
   };
 };
 
+export const setShoutList = (shouts) => {
+  return {
+    type: 'SET_SHOUT_LIST',
+    shouts,
+  };
+};
+
 export const setFormatValid = (isValid) => {
   return {
     type: 'SET_SHOUT_FORMAT_VALID',
@@ -55,6 +62,16 @@ export const submitShout = () => {
     })
     .catch(() => {
       dispatch(setShoutError('An unexpected error occured. Please be patient'));
+    });
+  };
+};
+
+export const getShoutList = (userId) => {
+  return (dispatch) => {
+    axios.get('/api/shouts/following', {
+      params: { userId },
+    }).then(({ data }) => {
+      dispatch(setShoutList(data));
     });
   };
 };

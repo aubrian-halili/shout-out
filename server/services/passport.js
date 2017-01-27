@@ -10,6 +10,7 @@ const getUserDetails = (user) => {
   return {
     id: user.id,
     name: user.name,
+    following: user.following,
   };
 }
 

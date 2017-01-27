@@ -8,6 +8,8 @@ import Dashboard from '../containers/DashboardContainer';
 import ShoutList from '../containers/ShoutListContainer';
 import ShoutFormContainer from '../containers/ShoutFormContainer';
 
+import { getShoutList } from '../actions/shout-action';
+
 class Root extends Component {
   render() {
     return (
@@ -17,7 +19,7 @@ class Root extends Component {
           <Route path="login" component={Login} />
           <Route path="dashboard" component={Dashboard}>
             <IndexRoute component={ShoutFormContainer} />
-            <Route path="shouts" component={ShoutList} />
+            <Route path=":userId" component={ShoutList} onEnter={getShoutList} />
           </Route>
         </Route>
       </Router>

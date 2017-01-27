@@ -4,7 +4,7 @@ import mongoose from '../services/mongoose';
 const Schema = mongoose.Schema;
 const ShoutSchema = new Schema({
   text: String,
-  user_id: String,
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
   created_at: Date,
   updated_at: Date,
 });

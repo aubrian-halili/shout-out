@@ -11,6 +11,6 @@ shouts.get('/', find);
 shouts.post('/', save);
 shouts.put('/:shoutId', update);
 shouts.delete('/:shoutId', remove);
-shouts.get('/feeds', findByUserId);
+shouts.get('/following', findByUserId);
 
 module.exports = shouts;
