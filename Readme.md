@@ -1,7 +1,7 @@
 ShoutBux
 =====================
 
-## Program requisites
+## Program Prequisites
 
   * NodeJS
   * ExpressJS
@@ -24,8 +24,14 @@ $ git clone https://github.com/aubrian-halili/shout-out.git
 $ npm install
 ```
 
-## Mongo Setup
-  Update the config file located in this path:
+## Start the Application
+
+```bash
+$ npm start
+```
+
+## MongoDB Setup
+  Update the config file for MongoDB connection which is located in this path:
 
 ```bash
 $ cd /app_dir/server/config.js
@@ -38,7 +44,7 @@ mongo: {
 ```
 
 ## Redis Setup
-  Update the config file located in this path:
+  Update the config file for Redis connection which is located in this path:
 
 ```bash
 $ cd /app_dir/server/config.js
