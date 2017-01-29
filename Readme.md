@@ -24,11 +24,12 @@ $ git clone https://github.com/aubrian-halili/shout-out.git
 $ npm install
 ```
 
-## Start the Application
+## Run the Application
 
 ```bash
 $ npm start
 ```
+Then go to this URL: http://localhost:9000/
 
 ## MongoDB Setup
   Update the config file for MongoDB connection which is located in this path:
