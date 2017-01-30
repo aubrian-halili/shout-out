@@ -30,33 +30,10 @@ export default (routes) => {
   app.use('/api', routes);
 
   const isDev = process.env.NODE_ENV === 'development';
-  if (isDev) {
-    const compiler = webpack(webpackConfig);
-    const middleware = webpackMiddleware(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: {
-        colors: true,
-        hash: false,
-        timings: true,
-        chunks: false,
-        chunkModules: false,
-        modules: false,
-      },
-    });
-
-    app.use(middleware);
-    app.use(webpackHotMiddleware(compiler));
-    app.get('*', (req, res) => {
-      res.type('html');
-      res.write(middleware.fileSystem.readFileSync(path.join(config.root, '/dist/index.html')));
-      res.end();
-    });
-  } else {
-    app.use(express.static(`${config.root}/dist`));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(config.root, '/dist/index.html'));
-    });
-  }
+  app.use(express.static(`${config.root}/dist`));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(config.root, '/dist/index.html'));
+  });
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
