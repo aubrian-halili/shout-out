@@ -7,9 +7,31 @@ import mongoose from './services/mongoose';
 import logger from './util/logger';
 import api from './api';
 import config from './config';
+import userList from '../db-backup/users.json';
+import User from './models/User';
+import _ from './util/_'
 
 const app = express(api);
 mongoose.connect(config.mongo.uri);
+mongoose.connection.on('open', () => {
+  User.remove({}, () => {
+    _.forEach(userList, (data) => {
+      const user = new User({
+        _id: mongoose.Types.ObjectId(data._id),
+        name: data.name,
+        username: data.username,
+        password: data.password,
+        following: data.following,
+      });
+      user.save((err, newUser) => {
+        logger.log('User added: ', newUser);
+      });
+    });
+    // User.collection.insert(userList, (a1, b1, c1, d1) => {
+    //   const i = 0;
+    // })
+  });
+});
 
 const port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);

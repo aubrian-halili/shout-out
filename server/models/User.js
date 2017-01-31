@@ -4,6 +4,7 @@ import { hash, compare } from '../util/bcrypt';
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: String,
   username: String,
   password: String,

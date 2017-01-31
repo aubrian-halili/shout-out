@@ -3,16 +3,17 @@
 import passport from 'passport';
 import passportLocal from 'passport-local';
 import User from '../models/User';
+import _ from '../util/_';
 
 const LocalStrategy = passportLocal.Strategy;
 
 const getUserDetails = (user) => {
   return {
-    id: user.id,
-    name: user.name,
-    following: user.following,
+    id: _.get(user, 'id'),
+    name: _.get(user, 'name'),
+    following: _.get(user, 'following'),
   };
-}
+};
 
 passport.use(new LocalStrategy({
   usernameField: 'username',
