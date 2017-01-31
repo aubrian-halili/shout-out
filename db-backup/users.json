@@ -1,0 +1,131 @@
+[
+  {
+    "_id": "588bc58384f79a9c026fa6e3",
+    "created_at": "2017-01-27T22:11:15.616Z",
+    "updated_at": "2017-01-27T22:11:15.616Z",
+    "name": "Shelby Purdie",
+    "username": "shelby",
+    "password": "shelby",
+    "following": [
+      "588bc5a184f79a9c026fa6e4",
+      "588bc5b884f79a9c026fa6e5",
+      "588bc5dc84f79a9c026fa6e6",
+      "588bc5ee84f79a9c026fa6e7",
+      "588bc60b84f79a9c026fa6e8",
+      "588bc62284f79a9c026fa6e9"
+    ]
+  },
+  {
+    "_id": "588bc5a184f79a9c026fa6e4",
+    "created_at": "2017-01-27T22:11:45.182Z",
+    "updated_at": "2017-01-27T22:11:45.182Z",
+    "name": "Gabriele Linares",
+    "username": "gabriele",
+    "password": "gabriele",
+    "following": [
+      "588bc5b884f79a9c026fa6e5",
+      "588bc5ee84f79a9c026fa6e7",
+      "588bc62284f79a9c026fa6e9",
+      "588bc64e84f79a9c026fa6eb"
+    ]
+  },
+  {
+    "_id": "588bc5b884f79a9c026fa6e5",
+    "created_at": "2017-01-27T22:12:08.464Z",
+    "updated_at": "2017-01-27T22:12:08.464Z",
+    "name": "Martine Ruggeri",
+    "username": "martine",
+    "password": "martine",
+    "following": [
+      "588bc58384f79a9c026fa6e3",
+      "588bc5dc84f79a9c026fa6e6",
+      "588bc62284f79a9c026fa6e9",
+      "588bc66284f79a9c026fa6ec"
+    ]
+  },
+  {
+    "_id": "588bc5dc84f79a9c026fa6e6",
+    "created_at": "2017-01-27T22:12:44.040Z",
+    "updated_at": "2017-01-27T22:12:44.040Z",
+    "name": "Elisha Ribeiro",
+    "username": "elisha",
+    "password": "elisha",
+    "following": [
+      "588bc60b84f79a9c026fa6e8",
+      "588bc63884f79a9c026fa6ea",
+      "588bc5a184f79a9c026fa6e4"
+    ]
+  },
+  {
+    "_id": "588bc5ee84f79a9c026fa6e7",
+    "created_at": "2017-01-27T22:13:02.762Z",
+    "updated_at": "2017-01-27T22:13:02.762Z",
+    "name": "Emmaline Harms",
+    "username": "emmaline",
+    "password": "emmaline",
+    "following": [
+      "588bc62284f79a9c026fa6e9",
+      "588bc5b884f79a9c026fa6e5"
+    ]
+  },
+  {
+    "_id": "588bc60b84f79a9c026fa6e8",
+    "created_at": "2017-01-27T22:13:31.687Z",
+    "updated_at": "2017-01-27T22:13:31.687Z",
+    "name": "Shanice Mcnulty",
+    "username": "shanice",
+    "password": "shanice",
+    "following": [
+      "588bc58384f79a9c026fa6e3",
+      "588bc63884f79a9c026fa6ea"
+    ]
+  },
+  {
+    "_id": "588bc62284f79a9c026fa6e9",
+    "created_at": "2017-01-27T22:13:54.995Z",
+    "updated_at": "2017-01-27T22:13:54.995Z",
+    "name": "Alfredo Atkin",
+    "username": "alfredo",
+    "password": "alfredo",
+    "following": [
+      "588bc60b84f79a9c026fa6e8",
+      "588bc5b884f79a9c026fa6e5"
+    ]
+  },
+  {
+    "_id": "588bc63884f79a9c026fa6ea",
+    "created_at": "2017-01-27T22:14:16.667Z",
+    "updated_at": "2017-01-27T22:14:16.667Z",
+    "name": "Tad Paulk",
+    "username": "tad",
+    "password": "tad",
+    "following": [
+      "588bc5b884f79a9c026fa6e5",
+      "588bc64e84f79a9c026fa6eb"
+    ]
+  },
+  {
+    "_id": "588bc64e84f79a9c026fa6eb",
+    "created_at": "2017-01-27T22:14:38.093Z",
+    "updated_at": "2017-01-27T22:14:38.093Z",
+    "name": "Jerilyn Awong",
+    "username": "jerilyn",
+    "password": "jerilyn",
+    "following": [
+      "588bc58384f79a9c026fa6e3",
+      "588bc5b884f79a9c026fa6e5"
+    ]
+  },
+  {
+    "_id": "588bc66284f79a9c026fa6ec",
+    "created_at": "2017-01-27T22:14:58.075Z",
+    "updated_at": "2017-01-27T22:14:58.075Z",
+    "name": "Modesta Juergens",
+    "username": "modesta",
+    "password": "modesta",
+    "following": [
+      "588bc63884f79a9c026fa6ea",
+      "588bc5ee84f79a9c026fa6e7"
+    ]
+  }
+]
