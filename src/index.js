@@ -11,7 +11,7 @@ import reducers from './reducers';
 import Root from './components/Root';
 import css from './styles/app.css';
 
-// Added comments
+// Added comments again
 const engine = createEngine('YjGQoDeJHdAm');
 const storageMiddleware = storage.createMiddleware(engine);
 
