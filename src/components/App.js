@@ -6,6 +6,9 @@ const App = ({ children }) => {
   return (
     <div>
       <Header />
+      <div>
+        Modification here
+      <div>
       {children}
     </div>
   );
